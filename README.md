@@ -11,7 +11,8 @@ Assumptions :
 Technologies : Python, Flask
 
 API Endpoints : 
-GET /logs
-GET /logs/stats
-GET /logs/{log_id}
+
+- GET /logs
+- GET /logs/stats
+- GET /logs/{log_id}
 
