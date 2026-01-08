@@ -14,3 +14,4 @@ API Endpoints :
 GET /logs
 GET /logs/stats
 GET /logs/{log_id}
+

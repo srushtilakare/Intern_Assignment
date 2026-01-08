@@ -1,6 +1,6 @@
-from flask import Flask
-from flask import request
-import os
+from flask import Flask #for api
+from flask import request #for query parameters
+import os #for reading files
 
 app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def parse_logs():
 parse_logs()
 
 @app.route("/logs", methods=["GET"])
-def get_logs():
+def get_logs(): #filtering logs
     filtered_logs = logs
 
     level = request.args.get("level")
@@ -65,7 +65,7 @@ def get_logs():
     }
 
 @app.route("/logs/stats", methods=["GET"])
-def get_log_stats():
+def get_log_stats(): #for health monitoring
     total_logs = len(logs)
 
     level_count = {}
@@ -85,7 +85,7 @@ def get_log_stats():
     }
 
 @app.route("/logs/<int:log_id>", methods=["GET"])
-def get_log_by_id(log_id):
+def get_log_by_id(log_id): #returns log details according to id else error handling
     for log in logs:
         if log["id"] == log_id:
             return log
@@ -100,4 +100,3 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
